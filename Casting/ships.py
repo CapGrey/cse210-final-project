@@ -1,4 +1,4 @@
-from player import Player
+from Casting.player import Player
 from Shared.color import Color
 import random
 import constants

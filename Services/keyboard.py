@@ -19,6 +19,8 @@ class KeyboardService:
         self._keys['d'] = pyray.KEY_D
         self._keys['space'] = pyray.KEY_SPACE
         
+        self._direction = 0
+        
     def is_key_up(self, key):
         """Checks if the given key is currently up.
         
@@ -37,3 +39,8 @@ class KeyboardService:
         pyray_key = self._keys[key.lower()]
         return pyray.is_key_down(pyray_key)
 
+    def get_direction(self):
+        return self._direction
+    
+    def set_direction(self, direction):
+        self._direction = direction

@@ -2,7 +2,6 @@ import os
 import random
 from Casting.player import Player
 
-# from player import Player
 from Casting.ships import Ships
 from Scripts.movingObjects import MovingObjects
 from Casting.cast import Cast
@@ -19,9 +18,9 @@ import constants
 
 
 def main():
-    keyboard_service = KeyboardService(constants.CELL_SIZE)
+    keyboard_service = KeyboardService()
     video_service = VideoService(constants.CAPTION, constants.MAX_X, 
-                                 constants.MAX_Y, constants.CELL_SIZE, 
+                                 constants.MAX_Y, constants.CELL_SIZE,
                                  constants.FRAME_RATE)
     director = Director(keyboard_service, video_service)
     

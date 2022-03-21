@@ -30,15 +30,15 @@ class ControlActorsAction():
 
         # left
         if self._keyboard_service.is_key_down('a'):
-            player.move(-constants.CELL_SIZE)
+            self._keyboard_service.set_direction(-constants.CELL_SIZE)
         
         # right
         if self._keyboard_service.is_key_down('d'):
-            player.move(constants.CELL_SIZE)
+            self._keyboard_service.set_direction(constants.CELL_SIZE)
         
         # Space
-        if self._keyboard_service.is_key_down('space'):
-            player.shoot()
+        #if self._keyboard_service.is_key_down('space'):
+            #player.shoot()
         
         # Change fire mode
         # if self._keyboard_service.is_key_down('w'):

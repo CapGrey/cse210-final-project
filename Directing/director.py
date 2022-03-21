@@ -32,13 +32,14 @@ class Director:
         self._video_service.open_window()
         self._reset_ships()
         while self._video_service.is_window_open():
-            self._stage(cast)
+            self.stage(cast)
             self._get_inputs(cast)
             self._do_updates(cast)
             self._do_outputs(cast)
         self._video_service.close_window()
 
     def get_color_stage(self):
+        color = (0,0,0)
         match(self._stage):
             case 1:
                 color = constants.BLUE
@@ -58,10 +59,10 @@ class Director:
         for i in range(0, self._stage + 1):
             for j in range(0, 7):
                 ship = Ships()
-                ship.set_position([constants.MAX_X % i, constants.CELL_SIZE * j + j])
+                ship.set_position([constants.MAX_X * i, constants.CELL_SIZE * j + j])
                 ship.set_color(color)
 
-    def _stage(self, cast):
+    def stage(self, cast):
         ships = cast.get_actors("ships")
         if not ships:
             self._stage += 1
@@ -73,9 +74,9 @@ class Director:
         Args:
             cast (Cast): The cast of actors.
         """
-        robot = cast.get_first_actor("robots")
+        robot = cast.get_first_actor("player")
         velocity = self._keyboard_service.get_direction()
-        robot.set_velocity(velocity)        
+        robot.set_velocity(velocity)
 
     def _do_updates(self, cast):
         """Updates the robot's position and resolves any collisions with artifacts.
