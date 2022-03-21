@@ -1,0 +1,6 @@
+!Modify as needed!
+Use data from text files to create the game level.
+Syntax object inital x y
+ex: i11 {Invader 1 1}
+ex2: i11, i12, i13, i21 
+When reading info from text file remember 1st character is object, second is x, and third is y. The data here should be read in list formation seperated by ,
